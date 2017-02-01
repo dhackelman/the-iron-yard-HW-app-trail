@@ -53,8 +53,9 @@ img {
   box-sizing: border-box; }
 
 .header {
-  margin: 2% 2%;
-  width: 100%; }
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 2% auto;
+  width: 70%; }
   .header h1, .header h3 {
     font-size: 2rem;
     text-align: center;
@@ -63,18 +64,45 @@ img {
     font-size: 1.1rem; }
 
 .gamefield {
-  border: .5px solid black;
+  background-color: rgba(255, 255, 255, 0.7);
   overflow: hidden;
   margin: 2% auto;
-  width: 100%; }
+  padding: 1%;
+  width: 90%; }
   .gamefield .ui-section {
     float: left;
     width: 30%; }
   .gamefield .journey {
     float: left;
+    position: relative;
+    min-height: 150px;
     width: 70%; }
 
+fieldset button, fieldset input {
+  background-color: #fff;
+  display: block;
+  margin: 5% auto;
+  width: 75%; }
+
+.wagon {
+  margin: 1% auto;
+  width: 100%; }
+
+.meta-gamefield {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .meta-gamefield button {
+    background-color: #fff;
+    margin: 2% auto;
+    width: 30%; }
+
+.footer {
+  width: 100%; }
+
 body {
+  background: url(https://farm9.staticflickr.com/8049/8079745798_baa604a1c1_b.jpg) no-repeat center center fixed;
+  background-size: cover;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px; }
 

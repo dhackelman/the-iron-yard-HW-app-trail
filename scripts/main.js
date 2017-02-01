@@ -1,14 +1,16 @@
-(function() {
-    "use strict";
+"use strict";
 
     let mountaineers = []; //array to hold all my people
-
+    const addPassengers = document.querySelector('.add-passenger');
+    const wagonPassengers = document.querySelector('.people-info');
+    const userForm = document.querySelector('.user-input');
     class Person {
       constructor (name, food, health) {
         this.name = name;
         this.food = food;
         this.heath = health;
         this.hunter = true;
+        mountaineers.push(this);
 
       }
 
@@ -27,15 +29,34 @@
         }
       }
 
+      buildPerson(){
+
+      }
+
     }
 
+
+    function getFormValues(fields) {
+        const personObj = {
+            name: fields[1].value,
+            food: fields[2].value,
+            health: fields[3].value,
+          }
+        return personObj;
+      }
+
+    userForm.addEventListener('submit', ()=> {
+      event.preventDefault();
+      const context = getFormValues(event.target);
+      buildPerson(context);
+      console.dir(event.target);
+      userForm.reset();
+    });
+
+
     const nacho = new Person('Nacho', 45, true);
-    const taco = new Person('Taco', 20, false);
     const chalupaBatman = new Person('Chalupa-Batman', 50, true);
-    const barbie = new Person('Barbie', 10, false);
-    console.log(nacho.eat()); //make sure that Nacho's food get's decremented
-    console.log(nacho.hunt()); //randomly generate # to add to Nacho's food (eventually display food total of this.food + this.hunt (moreFood))
-    console.log(mountaineers); //make sure all my Persons get printed to mountaineers
+
 
     class Wagon {
       constructor (name, passengers, status) {
@@ -46,12 +67,11 @@
       }
 
       add() {
-        mountaineers.push(nacho);
-        mountaineers.push(taco);
-        mountaineers.push(chalupaBatman);
-        mountaineers.push(barbie);
-        if (mountaineers.length > 4) {
-          alert('too many people!');
+        let wagonPassengers = document.querySelector('.people-list');
+        for (var i = 0; i < mountaineers.length; i++ ) {
+          var passenger = document.createElement("li");
+          passenger.innerHTML = mountaineers[i].name +  mountaineers[i].food + mountaineers[i].health;
+          wagonPassengers.appendChild(passenger);
         }
       }
 
@@ -68,9 +88,4 @@
       }
     }
 
-    const wagonForce1 = new Wagon("Wagon Force 1", mountaineers, true);
-    console.log(wagonForce1);
-    console.log(wagonForce1.checkFood());
-
-
-})();
+    const wagonForce1 = new Wagon("Wagon", mountaineers, true);

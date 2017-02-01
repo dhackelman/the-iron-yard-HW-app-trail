@@ -1,5 +1,6 @@
 <!doctype html>
 <head>
+  <title>Appalachian Trail</title>
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
@@ -14,32 +15,33 @@
       <form class="user-input">
         <fieldset>
           <legend>User Inputs</legend>
-          <input type="text" placeholder="Name">
-          <button>Add to Wagon</button>
-        <button>Fix Wagon</button>
+          <input type="text" name="name" id="name" placeholder="Name">
+          <input type="number" name="food" id="food" placeholder="Starting Food (0-100)" min="0" max="100" step="5">
+          <input type="boolean" name="health" id="health" placeholder="You are healthy?)">
+          <button class="add-passenger" type="submit">Add to Wagon</button>
+          <button>Fix Wagon</button>
         </fieldset>
       </form>
     </div>
     <div class="journey">
       <h2>Your Journey</h2>
       <div class="wagon">
-        <h3>Wagon Status:<span class="wagon-status"></span></h3>
+        <p>Wagon Status:<span class="wagon-status"></span></p>
         <div class="passenger-stats">
-          <p class="person-info"><button>Hunt</button></p>
+          <ul class="people-list">
+          </ul>
         </div>
       </div>
-      <div class="meta-game-field">
+      <div class="meta-gamefield">
         <button>Check Food</button>
         <button>Check Health</button>
         <button>Continue your Journey</button>
       </div>
     </div>
-
   </section>
-
-
-
-
+  <footer class="footer">
+    <img src="" alt="foggy mountain bridge">
+  </footer>
   <script src="scripts/main.js"></script>
 </body>
 </html>
