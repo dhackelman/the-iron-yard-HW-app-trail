@@ -1,5 +1,5 @@
 .header {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   margin: 2% auto;
   width: 70%;
 
@@ -15,7 +15,7 @@
 }
 
 .gamefield {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
   margin: 2% auto;
   padding: 1%;
@@ -35,7 +35,7 @@
 }
 
 
-fieldset button, fieldset input {
+.user-input button, .user-input input, .user-input select {
   background-color: #fff;
   display: block;
   margin: 5% auto;
@@ -49,6 +49,12 @@ fieldset button, fieldset input {
   // min-height: 300px;
   margin: 1% auto;
   width: 100%;
+}
+
+.passenger-stats {
+  background-color: #fff;
+  font-weight: 300;
+  line-height: 2;
 }
 
 .meta-gamefield {

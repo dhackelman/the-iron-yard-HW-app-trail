@@ -2,7 +2,7 @@
 <head>
   <title>Appalachian Trail</title>
   <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -13,14 +13,16 @@
   <section class="gamefield">
     <div class="ui-section">
       <form class="user-input">
-        <fieldset>
           <legend>User Inputs</legend>
           <input type="text" name="name" id="name" placeholder="Name">
-          <input type="number" name="food" id="food" placeholder="Starting Food (0-100)" min="0" max="100" step="5">
-          <input type="boolean" name="health" id="health" placeholder="You are healthy?)">
+          <input type="number" name="food" id="food" placeholder="Starting Food (0-100)" min="0" max="100" step="1">
+          <select name="health" id="health" >
+            <option value="">Health</option>
+            <option value="good">Good</option>
+            <option value="bad">Bad</option>
+          </select>
           <button class="add-passenger" type="submit">Add to Wagon</button>
           <button>Fix Wagon</button>
-        </fieldset>
       </form>
     </div>
     <div class="journey">
@@ -40,7 +42,6 @@
     </div>
   </section>
   <footer class="footer">
-    <img src="" alt="foggy mountain bridge">
   </footer>
   <script src="scripts/main.js"></script>
 </body>

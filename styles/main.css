@@ -53,7 +53,7 @@ img {
   box-sizing: border-box; }
 
 .header {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   margin: 2% auto;
   width: 70%; }
   .header h1, .header h3 {
@@ -64,7 +64,7 @@ img {
     font-size: 1.1rem; }
 
 .gamefield {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
   margin: 2% auto;
   padding: 1%;
@@ -78,7 +78,7 @@ img {
     min-height: 150px;
     width: 70%; }
 
-fieldset button, fieldset input {
+.user-input button, .user-input input, .user-input select {
   background-color: #fff;
   display: block;
   margin: 5% auto;
@@ -87,6 +87,11 @@ fieldset button, fieldset input {
 .wagon {
   margin: 1% auto;
   width: 100%; }
+
+.passenger-stats {
+  background-color: #fff;
+  font-weight: 300;
+  line-height: 2; }
 
 .meta-gamefield {
   position: absolute;
@@ -103,7 +108,8 @@ fieldset button, fieldset input {
 body {
   background: url(https://farm9.staticflickr.com/8049/8079745798_baa604a1c1_b.jpg) no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px; }
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  line-height: 1.4; }
 
 /*# sourceMappingURL=main.css.map */

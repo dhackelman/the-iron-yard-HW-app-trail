@@ -1,17 +1,16 @@
-"use strict";
+(function() {"use strict";
 
+  const userForm = document.querySelector('.user-input');
+
+  const mountaineerCreator = (function() {
     let mountaineers = []; //array to hold all my people
-    const addPassengers = document.querySelector('.add-passenger');
-    const wagonPassengers = document.querySelector('.people-info');
-    const userForm = document.querySelector('.user-input');
+
     class Person {
       constructor (name, food, health) {
         this.name = name;
         this.food = food;
         this.heath = health;
-        this.hunter = true;
         mountaineers.push(this);
-
       }
 
       eat() {
@@ -29,51 +28,24 @@
         }
       }
 
-      buildPerson(){
-
-      }
-
     }
 
+    const nacho = new Person('Nacho', 45, 'good');
+    const chalupaBatman = new Person('Chalupa-Batman', 50, 'good');
 
-    function getFormValues(fields) {
-        const personObj = {
-            name: fields[1].value,
-            food: fields[2].value,
-            health: fields[3].value,
-          }
-        return personObj;
-      }
+    function createNewMounty(context) {
+      return new Person(context.name, context.food, context.health);
+    }
 
-    userForm.addEventListener('submit', ()=> {
-      event.preventDefault();
-      const context = getFormValues(event.target);
-      buildPerson(context);
-      console.dir(event.target);
-      userForm.reset();
-    });
-
-
-    const nacho = new Person('Nacho', 45, true);
-    const chalupaBatman = new Person('Chalupa-Batman', 50, true);
-
+    console.log(mountaineers);
 
     class Wagon {
       constructor (name, passengers, status) {
         this.name = name;
         this.passengers = mountaineers;
         this.status = status;
-        this.add();
       }
 
-      add() {
-        let wagonPassengers = document.querySelector('.people-list');
-        for (var i = 0; i < mountaineers.length; i++ ) {
-          var passenger = document.createElement("li");
-          passenger.innerHTML = mountaineers[i].name +  mountaineers[i].food + mountaineers[i].health;
-          wagonPassengers.appendChild(passenger);
-        }
-      }
 
       checkFood(){
         let totalFood = 0;
@@ -88,4 +60,49 @@
       }
     }
 
+    function wagonAdd() {
+      let wagonPassengers = document.querySelector('.people-list');
+      wagonPassengers.innerHTML = "";
+      if (mountaineers.length === 8) {
+        alert("Too many passengers! Everyone died in a terrible crash! Start Over!");
+        location.reload();
+      } else if (mountaineers.length < 9 ) {
+        for (var i = 0; i < mountaineers.length; i++ ) {
+          let personInfo = "<p>" + "Name: " + " " + mountaineers[i].name + " "+" " +"Food: " + " "+ mountaineers[i].food +" " +"Health: "+ " " + mountaineers[i].health;
+          const passenger = document.createElement("li");
+          passenger.innerHTML = personInfo;
+          wagonPassengers.appendChild(passenger);
+        }
+      }
+    }
+
     const wagonForce1 = new Wagon("Wagon", mountaineers, true);
+
+    return {
+      create: createNewMounty,
+      add: wagonAdd
+    }
+
+  })();
+
+
+  function getData(fields) {
+    const valuesObj = {
+      name: fields[0].value,
+      food: fields[1].value,
+      health: fields[2].value
+    }
+
+    return valuesObj;
+  }
+
+  userForm.addEventListener('submit', () => {
+    event.preventDefault();
+    const context = getData(event.target);
+    mountaineerCreator.create(context);
+    mountaineerCreator.add();
+    console.dir(event.target);
+    userForm.reset();
+  });
+
+})();
